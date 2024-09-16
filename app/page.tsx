@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
   <div 
-    className="relative min-h-screen bg-cover bg-center" 
+    className="relative min-h-screen bg-cover bg-center inset-0 bg-white bg-opacity-30 backdrop-blur-lg" 
     style={{ 
       backgroundImage: 'url("/images/tlo.jpg")', 
       backgroundSize: 'cover',
@@ -16,7 +16,7 @@ export default function Home() {
     }} 
   >
   {/* Optional glass effect overlay */}
-  <div className="absolute inset-0 bg-white bg-opacity-40 backdrop-blur-lg"></div>
+  <div className="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-lg"></div>
 
       <div className="relative z-10">
         <HorizontalLightGrayMenu />
