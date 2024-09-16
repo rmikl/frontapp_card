@@ -11,7 +11,6 @@ export default function Home() {
     className="relative min-h-screen bg-cover bg-center" 
     style={{ 
       backgroundImage: 'url("/images/tlo.jpg")', 
-      backgroundAttachment: 'fixed', 
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }} 
