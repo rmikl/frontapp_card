@@ -11,4 +11,6 @@ RUN npx tailwindcss init
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
