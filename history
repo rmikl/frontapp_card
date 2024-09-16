@@ -1,0 +1,14 @@
+    1  npx create-next-app@latest .
+    2  npm install shadcn-ui
+    3  npm install -D tailwindcss postcss autoprefixer
+    4  npx tailwindcss init
+    5  npm run dev
+    6  rm -rf pages/
+    7  npm run dev
+    8  mv postcss.config.mjs postcss.config.js
+    9  npm run dev
+   10  npm run dev
+   11  npm run dev
+   12  npm install lucide-react
+   13  npm run dev
+   14  history
