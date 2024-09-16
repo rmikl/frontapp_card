@@ -31,6 +31,7 @@ export default function Home() {
               width={600}
               height={400}
               className="mt-4"
+              position="center"
             />
           </section>
 
