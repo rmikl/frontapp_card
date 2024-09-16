@@ -16,7 +16,7 @@ export default function Home() {
     }} 
   >
   {/* Optional glass effect overlay */}
-  <div className="absolute inset-0 bg-white bg-opacity-40 backdrop-blur-sm"></div>
+  <div className="absolute inset-0 bg-white bg-opacity-40 backdrop-blur-lg"></div>
 
       <div className="relative z-10">
         <HorizontalLightGrayMenu />
