@@ -1,23 +1,22 @@
-'use client';
+'use client'; // Deklaracja wskazująca, że ten komponent działa po stronie klienta
 
 import { useState, useEffect } from 'react';
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu';
-import WelcomeScreen from '@/components/WelcomeScreen';
 import Image from 'next/image';
 
 export default function Home() {
   return (
-      <div className="relative min-h-screen">
-        {/* Rozmyte tło */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center filter blur-md" 
-          style={{ 
-            backgroundImage: 'url("/images/tlo.jpg")', 
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }} 
-        ></div>
-      </div>
+    <div className="relative min-h-screen">
+      {/* Rozmyte tło */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center filter blur-md" 
+        style={{ 
+          backgroundImage: 'url("/images/tlo.jpg")', 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }} 
+      ></div>
+
       <div className="relative z-10">
         <HorizontalLightGrayMenu />
         <div className="p-8">
@@ -31,7 +30,6 @@ export default function Home() {
               width={600}
               height={400}
               className="mt-4"
-              position="center"
             />
           </section>
 
