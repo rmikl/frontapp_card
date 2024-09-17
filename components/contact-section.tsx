@@ -36,7 +36,7 @@ export default function Component() {
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-6 h-6" />
-              <a href="mailto:krybami@wp.pl" className="hover:underline">kontakt@example.com</a>
+              <a href="mailto:krybami@wp.pl" className="hover:underline">krybami@wp.pl</a>
             </div>
             <div className="flex gap-4 mt-4">
             </div>
