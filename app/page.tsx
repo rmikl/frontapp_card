@@ -3,18 +3,14 @@
 import { useState, useEffect } from 'react';
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu';
 import Image from 'next/image';
-
 export default function Home() {
   return (
     <div className="relative min-h-screen">
       {/* Rozmyte tło */}
       <div 
-        className="absolute bg-cover bg-center filter blur-md" 
-        //className="absolute inset-0 bg-cover bg-center filter blur-md" 
+        className="absolute inset-0 bg-cover bg-center filter blur-md h-full w-full" 
         style={{ 
-          backgroundImage: 'url("/images/tlo.jpg")', 
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundImage: 'url("/images/tlo.jpg")',
         }} 
       >
       </div>
