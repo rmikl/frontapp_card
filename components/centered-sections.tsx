@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu'
 
 interface Section {
   id: string
@@ -40,28 +41,31 @@ const sections: Section[] = [
   },
 ]
 
-export default function CenteredSections() {
+export default function CenteredSectionsWithMenu() {
   return (
-    <div className="min-h-screen bg-gray-100 py-12">
-      {sections.map((section, index) => (
-        <section key={section.id} className="max-w-6xl mx-auto my-16 p-8 bg-white rounded-lg shadow-lg">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="w-full md:w-1/2 mb-8 md:mb-0">
-              <Image
-                src={section.imageUrl}
-                alt={section.title}
-                width={500}
-                height={300}
-                className="rounded-lg shadow-md"
-              />
+    <div className="min-h-screen bg-gray-100">
+      <HorizontalLightGrayMenu />
+      <div className="py-12">
+        {sections.map((section, index) => (
+          <section key={section.id} id={section.id} className="max-w-6xl mx-auto my-16 p-8 bg-white rounded-lg shadow-lg">
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <div className="w-full md:w-1/2 mb-8 md:mb-0">
+                <Image
+                  src={section.imageUrl}
+                  alt={section.title}
+                  width={500}
+                  height={300}
+                  className="rounded-lg shadow-md"
+                />
+              </div>
+              <div className="w-full md:w-1/2 md:pl-8">
+                <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
+                <p className="text-lg text-gray-700">{section.content}</p>
+              </div>
             </div>
-            <div className="w-full md:w-1/2 md:pl-8">
-              <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
-              <p className="text-lg text-gray-700">{section.content}</p>
-            </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        ))}
+      </div>
     </div>
   )
 }

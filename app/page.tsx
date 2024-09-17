@@ -12,15 +12,12 @@ export default function Home() {
   return (
     <ScrollingBackground imageUrl="/images/tlo.jpg">
       <div className="relative z-10">
-        <HorizontalLightGrayMenu />
-        <div className="p-8">
         <CenteredSections />
         <div className="min-h-screen pb-[footer-height]">
           <section id="contact">
             <ContactSection />
           </section>
         </div>
-      </div>
       </div>
     </ScrollingBackground>
 );
