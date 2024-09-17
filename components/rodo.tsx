@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Button } from "../components/ui/Button"
+import { Button } from '@/components/ui/Button'
 
 export default function RODOPopup() {
   const [isVisible, setIsVisible] = useState(false)
@@ -27,7 +27,7 @@ export default function RODOPopup() {
           Ta strona używa plików cookie, aby zapewnić najlepszą jakość korzystania z naszej witryny. 
           Korzystając z tej strony, zgadzasz się na użycie plików cookie zgodnie z naszą Polityką Prywatności.
         </p>
-        <Button onClick={handleAccept} className="bg-lime-500 hover:bg-lime-600 text-white">
+        <Button onClick={handleAccept} className="bg-lime-500 hover:bg-lime-600 text-white" variant={undefined}>
           Akceptuję
         </Button>
       </div>

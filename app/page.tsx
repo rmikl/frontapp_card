@@ -5,6 +5,7 @@ import ScrollingBackground from '@/components/scrolling-background'
 import ContactSection from '@/components/contact-section'
 import CenteredSections from '@/components/centered-sections'
 import WelcomeScreen from '@/components/WelcomeScreen'
+import RODOPopup from '@/components/rodo'
 
 export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true)
@@ -34,6 +35,7 @@ export default function Home() {
           </div>
         </div>
       </ScrollingBackground>
+    <RODOPopup/>
     </>
   )
 }
