@@ -7,17 +7,17 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-  <div 
-    className="relative min-h-screen bg-cover bg-center inset-0 bg-white bg-opacity-30 backdrop-blur-lg" 
-    style={{ 
-      backgroundImage: 'url("/images/tlo.jpg")', 
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    }} 
-  >
-  {/* Optional glass effect overlay */}
-  <div className="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-lg"></div>
-
+      <div className="relative min-h-screen">
+        {/* Rozmyte tło */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center filter blur-md" 
+          style={{ 
+            backgroundImage: 'url("/images/tlo.jpg")', 
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }} 
+        ></div>
+      </div>
       <div className="relative z-10">
         <HorizontalLightGrayMenu />
         <div className="p-8">
