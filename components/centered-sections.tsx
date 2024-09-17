@@ -25,7 +25,7 @@ const sections: Section[] = [
   {
     id: 'experience',
     title: 'Doświadczenie Zawodowe',
-    content: 'Doświadczenie zawodowe zdobywałam pracując z różnorodnymi grupami zawodowym oraz osobami, które miałykłopoty w wielu obszarach.',
+    content: 'Doświadczenie zawodowe zdobywałam pracując z różnorodnymi grupami zawodowym oraz osobami, które miały kłopoty w wielu obszarach.',
     expandedContent: 'Byłam zatrudniona w wojsku jako konsultant dowódcy jednostki ds. psychoprofilaktyki. Tworzyłam i kierowałam Ośrodkiem Interwencji Kryzysowej w Inowrocławiu. W 2010 r. pozyskałam środki z Ministerstwa Sprawiedliwości na pomoc osobom pokrzywdzonym przestępstwem w kujawsko-pomorskim, świadkom i ich rodzinom, gdzie pracowałam, jako psycholog do 2023 r. Od 12 lat prowadzę zajęcia i konsultacje indywidualne w CIS w Łojewie oraz Ośrodku Pomocy Społecznej w Jeziorach Wielkich, udzielając wsparcia osobom, podopiecznym ośrodka oraz prowadząc grupy wsparcia. Pomagam osobom z niepełnosprawnościami ze Środowiskowego Domu Samopomocy w Wonorzu, Kruszwicy oraz Żalinowie. Od 4 lat wspieram policjantów z województwa kujawsko-pomorskiego, zrzeszonych w NSZZ Policjantów Województwa Kujawsko-Pomorskiego. Współpracuję z jednostkami samorządowymi, organizacjami pozarządowymi udzielając wsparcia psychologicznego oraz prowadząc grupy wsparcia, psychoedukację i szkolenia. W 2010 r. uzyskałam certyfikowanym superwizorem interwencji kryzysowej rekomendowanym przez PTP. Prowadzę superwizje indywidualne i grupowe.',
     imageUrls: ['/images/handshake.jpg'],
   },
