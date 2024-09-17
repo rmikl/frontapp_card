@@ -50,7 +50,6 @@ const sections: Section[] = [
     imageUrls: ['/images/support.jpg'],
   },
 ]
-
 export default function CenteredSections() {
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
 
@@ -75,16 +74,20 @@ export default function CenteredSections() {
               <div className="w-full md:w-1/2 md:px-8">
                 <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
                 <p className="text-lg text-gray-700">{section.content}</p>
-                {expandedSections[section.id] && (
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    expandedSections[section.id] ? 'max-h-96' : 'max-h-0'
+                  }`}
+                >
                   <p className="text-lg text-gray-700 mt-4">{section.expandedContent}</p>
-                )}
+                </div>
                 <div 
                   className="flex items-center justify-end mt-4 text-gray-500 cursor-pointer"
                   onClick={() => toggleSection(section.id)}
                 >
                   <span className="mr-2">{expandedSections[section.id] ? 'Mniej' : 'Więcej'}</span>
                   <ChevronDown 
-                    className={`transform transition-transform duration-200 ${expandedSections[section.id] ? 'rotate-180' : ''}`} 
+                    className={`transform transition-transform duration-500 ${expandedSections[section.id] ? 'rotate-180' : ''}`} 
                   />
                 </div>
               </div>
