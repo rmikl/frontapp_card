@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin } from 'lucide-react'
 
 export default function Component() {
   return (
-    <footer className="bottom-0 left-0 right-0 bg-lime-200 text-primary-foreground p-4 shadow-lg">
+    <footer className="fixed bottom-0 left-0 right-0 bg-lime-200 text-primary-foreground p-4 shadow-lg">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex flex-col md:flex-row gap-4 md:gap-8">
           <div className="flex items-center gap-2">
