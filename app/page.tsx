@@ -11,7 +11,7 @@ export default function Home() {
       <div 
         className="absolute inset-0 bg-cover bg-center filter blur-md" 
         style={{ 
-          backgroundImage: 'url(/images/tlo.jpeg)', // Upewnij się, że rozszerzenie to .jpeg
+          backgroundImage: 'url(/images/tlo.jpg)', // Upewnij się, że rozszerzenie to .jpeg
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }} 
