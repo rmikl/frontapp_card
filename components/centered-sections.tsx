@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu'
 import AnimatedImage from '@/components/animated-image'
 import { ChevronDown } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 interface Section {
   id: string
@@ -53,23 +54,22 @@ const sections: Section[] = [
 export default function CenteredSections() {
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
   const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
-  const [contentHeights, setContentHeights] = useState<{ [key: string]: number }>({})
 
   useEffect(() => {
     const updateHeights = () => {
-      const newHeights: { [key: string]: number } = {}
       sections.forEach(section => {
         if (contentRefs.current[section.id]) {
-          newHeights[section.id] = contentRefs.current[section.id]!.scrollHeight
+          contentRefs.current[section.id]!.style.maxHeight = expandedSections[section.id]
+            ? `${contentRefs.current[section.id]!.scrollHeight}px`
+            : `${contentRefs.current[section.id]!.querySelector('p')!.scrollHeight}px`
         }
       })
-      setContentHeights(newHeights)
     }
 
     updateHeights()
     window.addEventListener('resize', updateHeights)
     return () => window.removeEventListener('resize', updateHeights)
-  }, [])
+  }, [expandedSections])
 
   const toggleSection = (id: string) => {
     setExpandedSections(prev => ({ ...prev, [id]: !prev[id] }))
@@ -83,31 +83,26 @@ export default function CenteredSections() {
           <section 
             key={section.id} 
             id={section.id} 
-            className="max-w-6xl mx-auto my-16 bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-in-out"
-            style={{
-              maxHeight: expandedSections[section.id] 
-                ? `${contentHeights[section.id]}px` 
-                : `${contentHeights[section.id]}px`,
-            }}
+            className="max-w-6xl mx-auto my-16 bg-white rounded-lg shadow-lg overflow-hidden"
           >
             <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start justify-between p-8`}>
               <div className="w-full md:w-1/2 mb-8 md:mb-0">
                 <AnimatedImage imageUrls={section.imageUrls} alt={section.title} />
               </div>
               <div className="w-full md:w-1/2 md:px-8">
-                <div ref={el => contentRefs.current[section.id] = el}>
+                <div 
+                  ref={el => contentRefs.current[section.id] = el}
+                  className="transition-all duration-500 ease-in-out overflow-hidden"
+                >
                   <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
                   <p className="text-lg text-gray-700">{section.content}</p>
-                  <div 
-                    className={`mt-4 overflow-hidden transition-all duration-500 ease-in-out ${
-                      expandedSections[section.id] ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
+                  <div className={`mt-4 ${expandedSections[section.id] ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
                     <p className="text-lg text-gray-700">{section.expandedContent}</p>
                   </div>
                 </div>
-                <button 
-                  className="flex items-center justify-end mt-4 text-blue-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded"
+                <Button 
+                  variant="ghost"
+                  className="flex items-center justify-end mt-4 text-blue-600 cursor-pointer"
                   onClick={() => toggleSection(section.id)}
                   aria-expanded={expandedSections[section.id]}
                   aria-controls={`expanded-content-${section.id}`}
@@ -116,7 +111,7 @@ export default function CenteredSections() {
                   <ChevronDown 
                     className={`transform transition-transform duration-500 ${expandedSections[section.id] ? 'rotate-180' : ''}`} 
                   />
-                </button>
+                </Button>
               </div>
             </div>
           </section>
