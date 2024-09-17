@@ -4,7 +4,6 @@ export default function Component() {
   return (
     <footer className="fixed bottom-0 left-0 right-0 bg-primary text-primary-foreground p-4 shadow-lg">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <h2 className="text-xl font-bold mb-4 md:mb-0">Kontakt</h2>
         <div className="flex flex-col md:flex-row gap-4 md:gap-8">
           <div className="flex items-center gap-2">
             <Mail className="w-5 h-5" />
