@@ -67,7 +67,9 @@ export default function CenteredSections() {
           <section 
             key={section.id} 
             id={section.id} 
-            ref={el => sectionRefs.current[section.id] = el}
+            ref={el => {
+              sectionRefs.current[section.id] = el as HTMLDivElement
+            }}
             className="max-w-6xl mx-auto my-16 p-8 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg transition-all duration-500 ease-in-out"
           >
             <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between`}>
@@ -80,9 +82,14 @@ export default function CenteredSections() {
                 <div 
                   className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
                   style={{ maxHeight: expandedSections[section.id] ? expandedHeights[section.id] : 0 }}
+                  ref={el => {
+                    expandedContentRefs.current[section.id] = el
+                  }}
                 >
                   <p 
-                    ref={el => expandedContentRefs.current[section.id] = el}
+                    ref={el => {
+                      expandedContentRefs.current[section.id] = el
+                    }}
                     className="text-lg text-gray-700 mt-4"
                   >
                     {section.expandedContent}
