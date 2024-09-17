@@ -12,7 +12,6 @@ interface Section {
   expandedContent: string
   imageUrls: string[]
 }
-
 const sections: Section[] = [
   {
     id: 'about',
@@ -51,21 +50,25 @@ const sections: Section[] = [
   },
 ]
 
-
 export default function CenteredSections() {
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
-  const [sectionHeights, setSectionHeights] = useState<{ [key: string]: number }>({})
   const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const [contentHeights, setContentHeights] = useState<{ [key: string]: number }>({})
 
   useEffect(() => {
-    sections.forEach(section => {
-      if (contentRefs.current[section.id]) {
-        setSectionHeights(prev => ({
-          ...prev,
-          [section.id]: contentRefs.current[section.id]?.scrollHeight || 0
-        }))
-      }
-    })
+    const updateHeights = () => {
+      const newHeights: { [key: string]: number } = {}
+      sections.forEach(section => {
+        if (contentRefs.current[section.id]) {
+          newHeights[section.id] = contentRefs.current[section.id]!.scrollHeight
+        }
+      })
+      setContentHeights(newHeights)
+    }
+
+    updateHeights()
+    window.addEventListener('resize', updateHeights)
+    return () => window.removeEventListener('resize', updateHeights)
   }, [])
 
   const toggleSection = (id: string) => {
@@ -73,22 +76,21 @@ export default function CenteredSections() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-100">
       <HorizontalLightGrayMenu />
-      <div className="py-12">
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
         {sections.map((section, index) => (
           <section 
             key={section.id} 
             id={section.id} 
-            className="max-w-6xl mx-auto my-16 p-8 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg transition-all duration-500 ease-in-out"
+            className="max-w-6xl mx-auto my-16 bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-in-out"
             style={{
               maxHeight: expandedSections[section.id] 
-                ? `${sectionHeights[section.id]}px` 
-                : '300px', // Adjust this value as needed for collapsed state
-              overflow: 'hidden'
+                ? `${contentHeights[section.id]}px` 
+                : `${contentHeights[section.id]}px`,
             }}
           >
-            <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start justify-between`}>
+            <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start justify-between p-8`}>
               <div className="w-full md:w-1/2 mb-8 md:mb-0">
                 <AnimatedImage imageUrls={section.imageUrls} alt={section.title} />
               </div>
@@ -96,19 +98,25 @@ export default function CenteredSections() {
                 <div ref={el => contentRefs.current[section.id] = el}>
                   <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
                   <p className="text-lg text-gray-700">{section.content}</p>
-                  <div className={`mt-4 ${expandedSections[section.id] ? 'block' : 'hidden'}`}>
+                  <div 
+                    className={`mt-4 overflow-hidden transition-all duration-500 ease-in-out ${
+                      expandedSections[section.id] ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
                     <p className="text-lg text-gray-700">{section.expandedContent}</p>
                   </div>
                 </div>
-                <div 
-                  className="flex items-center justify-end mt-4 text-gray-500 cursor-pointer"
+                <button 
+                  className="flex items-center justify-end mt-4 text-blue-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded"
                   onClick={() => toggleSection(section.id)}
+                  aria-expanded={expandedSections[section.id]}
+                  aria-controls={`expanded-content-${section.id}`}
                 >
                   <span className="mr-2">{expandedSections[section.id] ? 'Mniej' : 'Więcej'}</span>
                   <ChevronDown 
                     className={`transform transition-transform duration-500 ${expandedSections[section.id] ? 'rotate-180' : ''}`} 
                   />
-                </div>
+                </button>
               </div>
             </div>
           </section>
