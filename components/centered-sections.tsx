@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu'
-import ScrollingBackground from '@/components/scrolling-background'
+import AnimatedImage from './animated-image'
 
 interface Section {
   id: string
@@ -14,7 +14,7 @@ const sections: Section[] = [
     id: 'about',
     title: 'Profil Zawodowy',
     content: 'Jestem doświadczonym specjalistą w zakresie interwencji kryzysowej i terapii psychologicznej. Posiadam szeroką wiedzę i umiejętności w zakresie pracy z osobami dotkniętymi przemocą, problemami emocjonalnymi oraz kryzysami psychologicznymi.',
-    imageUrl: '/images/profil-zawodowy.jpg',
+    imageUrl: '/images/self.jpg',
   },
   {
     id: 'experience',
@@ -55,13 +55,8 @@ export default function CenteredSections() {
             >
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="w-full md:w-1/2 mb-8 md:mb-0">
-                  <Image
-                    src={section.imageUrl}
-                    alt={section.title}
-                    width={500}
-                    height={300}
-                    className="rounded-lg shadow-md"
-                  />
+                <AnimatedImage />
+
                 </div>
                 <div className="w-full md:w-1/2 md:pl-8">
                   <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
