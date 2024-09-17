@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/Button"
-import { Mail } from "lucide-react"
+import { Mail,HomeIcon } from "lucide-react"
 import { useState, useEffect } from 'react'
 
 export default function MenuZmianaKoloruPrzyPrzewijaniu() {
@@ -31,25 +31,32 @@ export default function MenuZmianaKoloruPrzyPrzewijaniu() {
     <div className={`w-full py-2 px-4 sticky top-0 z-10 transition-colors ${isScrolled ? 'bg-lime-200' : 'bg-gray-200'}`}>
       <nav className="flex items-center justify-between">
         <div className="flex space-x-2">
-          <Button variant="ghost" className={buttonClass}>
-            Strona główna
-          </Button>
+        <a href="#home">    
+            <Button variant="ghost" size="icon" className="hover:bg-gray-300 transition-colors" aria-label="Home">
+              <HomeIcon className="h-5 w-5" />
+            </Button>
+          </a>
+          <a href="#about">
           <Button variant="ghost" className={buttonClass}>
             O nas
           </Button>
+          </a>
+          <a href="#services">
           <Button variant="ghost" className={buttonClass}>
             Usługi
           </Button>
+          </a>
+          <a href="#portfolio">
           <Button variant="ghost" className={buttonClass}>
             Portfolio
           </Button>
-          <Button variant="ghost" className={buttonClass}>
-            Kontakt
-          </Button>
+        </a>
         </div>
+        <a href="#contact">
         <Button variant="ghost" size="icon" className={buttonClass} aria-label="Kontakt">
           <Mail className="h-5 w-5" />
         </Button>
+        </a>
       </nav>
     </div>
   )
