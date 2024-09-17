@@ -11,7 +11,7 @@ export default function Component() {
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div className="w-full h-[400px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.7783525796113!2d21.012228776687614!3d52.23082037198037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc8c92692e49%3A0xc2e97552d0abf165!2sPa%C5%82ac%20Kultury%20i%20Nauki!5e0!3m2!1spl!2spl!4v1686665754093!5m2!1spl!2spl"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2412.520091835772!2d18.25775747645126!3d52.79496137213448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4703508b5f31c1db%3A0xbf77c694daf36455!2sSzeroka%201%2C%2088-100%20Inowroc%C5%82aw!5e0!3m2!1spl!2spl!4v1726585577730!5m2!1spl!2spl"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -24,33 +24,21 @@ export default function Component() {
             <h2 className="text-2xl font-bold mb-4">Kontakt</h2>
             <div className="flex items-center gap-2">
               <MapPin className="w-6 h-6" />
-              <span>ul. Przykładowa 123, 00-000 Warszawa</span>
+              <span>ul. Szeroka 1 88-100 Inowrocław, pokój 116, I piętro</span>
             </div>
             <div className="flex items-center gap-2">
               <MessageCircle className="w-6 h-6" />
-              <span>Signal: +48 123 456 789</span>
+              <span>Signal: +48 691 688 911</span>
             </div>
             <div className="flex items-center gap-2">
               <MessageCircle className="w-6 h-6" />
-              <span>WhatsApp: +48 123 456 789</span>
+              <span>WhatsApp: +48 691 688 911</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-6 h-6" />
-              <a href="mailto:kontakt@example.com" className="hover:underline">kontakt@example.com</a>
+              <a href="mailto:krybami@wp.pl" className="hover:underline">kontakt@example.com</a>
             </div>
             <div className="flex gap-4 mt-4">
-              <Button variant="outline" className="flex items-center gap-2">
-                <MessageCircle className="w-5 h-5" />
-                Signal
-              </Button>
-              <Button variant="outline" className="flex items-center gap-2">
-                <MessageCircle className="w-5 h-5" />
-                WhatsApp
-              </Button>
-              <Button variant="outline" className="flex items-center gap-2">
-                <Mail className="w-5 h-5" />
-                Email
-              </Button>
             </div>
           </div>
         </div>
