@@ -132,6 +132,7 @@ export default function Home() {
             <ContactSection />
           </section>
         </div>
-      </ScrollingBackground>
-    );
+      </div>
+    </ScrollingBackground>
+);
 }
