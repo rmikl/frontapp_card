@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { Mail, HomeIcon } from "lucide-react";
 import { useState, useEffect } from 'react';
 
-export default function MenuZmianaKoloruPrzyPrzewijaniu() {
+export default function HorizontalLightGrayMenu() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

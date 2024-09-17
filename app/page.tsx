@@ -5,6 +5,7 @@ import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu';
 import Image from 'next/image';
 import ScrollingBackground from '@/components/scrolling-background';
 import ContactSection from '@/components/contact-section';
+import AnimatedImage from '@/components/animated-image';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <div className="p-8">
           {/* Główna sekcja - Strona główna */}
           <section id="home" className="min-h-screen flex flex-col items-center justify-center">
+            <AnimatedImage />
             <h1 className="text-5xl font-bold mb-4">Krystyna Miklas</h1>
             <h2 className="text-3xl mb-6">Psycholog, Specjalista ds. Interwencji Kryzysowej</h2>
             <p className="text-lg text-center max-w-2xl">
