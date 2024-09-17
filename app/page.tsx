@@ -9,14 +9,14 @@ export default function Home() {
     <div className="relative min-h-screen">
       {/* Rozmyte tło */}
       <div 
-        className="absolute inset-0 bg-cover bg-center filter blur-md" 
+        className="absolute bg-cover bg-center filter blur-md" 
+        //className="absolute inset-0 bg-cover bg-center filter blur-md" 
         style={{ 
           backgroundImage: 'url("/images/tlo.jpg")', 
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }} 
       >
-
       </div>
 
       <div className="relative z-10">
