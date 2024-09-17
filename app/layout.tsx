@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Psycholog - Krystyna Miklas",
   description: 'Psycholog - Krystyna Miklas',
   icons: {
-    icon: '/images/ico.png',
+    icon: '/images/ico.ico',
   },
 }
 
