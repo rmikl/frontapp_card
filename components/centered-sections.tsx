@@ -19,25 +19,25 @@ const sections: Section[] = [
     id: 'experience',
     title: 'Doświadczenie Zawodowe',
     content: 'Moje doświadczenie obejmuje pracę jako konsultant ds. psychoprofilaktyki w wojsku, kierownik Ośrodka Interwencji Kryzysowej w Inowrocławiu, psycholog w Programie Pomocy Osobom Pokrzywdzonym Przestępstwem, oraz wsparcie dla policjantów w województwie kujawsko-pomorskim.',
-    imageUrl: '/images/doswiadczenie.jpg',
+    imageUrl: '/images/handshake.jpg',
   },
   {
     id: 'education',
     title: 'Wykształcenie',
     content: 'Ukończyłam studia psychologiczne w Szkole Wyższej Psychologii Społecznej w Warszawie, a także studia podyplomowe na Uniwersytecie Mikołaja Kopernika w Toruniu, Uniwersytecie im. Adama Mickiewicza w Poznaniu, Uniwersytecie Gdańskim i Uniwersytecie Wrocławskim.',
-    imageUrl: '/images/wyksztalcenie.jpg',
+    imageUrl: '/images/books.jpg',
   },
   {
     id: 'training',
     title: 'Kursy i Szkolenia',
     content: 'Uczestniczyłam w licznych kursach i szkoleniach, w tym z terapii przetwarzania poznawczego dla osób z PTSD, terapii traumy, terapii schematów, oraz wielu innych z zakresu psychologii, uzależnień i interwencji kryzysowej.',
-    imageUrl: '/images/kursy.jpg',
+    imageUrl: '/images/training.jpg',
   },
   {
     id: 'support',
     title: 'Zakres Prowadzonego Wsparcia',
     content: 'Oferuję wsparcie w zakresie interwencji kryzysowej, terapii traumy, terapii poznawczo-behawioralnej, pracy z młodzieżą, prowadzenia szkoleń i warsztatów, oraz superwizji indywidualnych i grupowych.',
-    imageUrl: '/images/wsparcie.jpg',
+    imageUrl: '/images/support.jpg',
   },
 ]
 
