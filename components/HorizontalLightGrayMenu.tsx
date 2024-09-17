@@ -25,7 +25,7 @@ export default function HorizontalLightGrayMenu() {
   }, []);
 
   return (
-    <div className={`w-full py-2 px-4 sticky top-0 z-10 transition-colors duration-300 ${isScrolled ? 'bg-lime-700' : 'bg-gray-200'}`}>
+    <div className={`w-full py-2 px-4 sticky top-0 z-10 transition-colors duration-300 ${isScrolled ? 'bg-lime-200' : 'bg-gray-200'}`}>
       <nav className="flex items-center justify-between">
         <div className="flex space-x-2">
           <a href="#home">
