@@ -63,24 +63,12 @@ export default function Home() {
               className="mt-4"
               />
           </section>
-
-          {/* Sekcja - Kontakt */}
-          <section id="contact" className="min-h-screen">
-            <h2 className="text-4xl font-bold mb-4">Kontakt</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <Image
-              src="/images/contact.jpg"
-              alt="Contact"
-              width={600}
-              height={400}
-              className="mt-4"
-              />
-          </section>
         </div>
       </div>
       <div className="min-h-screen pb-[footer-height]">
-      {/* Your main content */}
-      <ContactSection />
+      <section id="contact">
+        <ContactSection />
+      </section>
     </div>
     </ScrollingBackground>
   );
