@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageCircle, PhoneIncoming } from 'lucide-react'
 import { Button } from './ui/Button'
 
 export default function Component() {
@@ -25,6 +25,10 @@ export default function Component() {
             <div className="flex items-center gap-2">
               <MapPin className="w-6 h-6" />
               <span>ul. Szeroka 1 88-100 Inowrocław, pokój 116, I piętro</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <PhoneIncoming className="w-6 h-6" />
+              <span>Telfon: +48 691 688 911</span>
             </div>
             <div className="flex items-center gap-2">
               <MessageCircle className="w-6 h-6" />
