@@ -1,50 +1,43 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
+import ScrollingBackground from '@/components/scrolling-background'
+import ContactSection from '@/components/contact-section'
+import CenteredSections from '@/components/centered-sections'
+import WelcomeScreen from '@/components/WelcomeScreen'
+import RODOPopup from '@/components/rodo'
 
-export default function WelcomeScreen() {
-  const [visible, setVisible] = useState(false);
+export default function Home() {
+  const [showWelcome, setShowWelcome] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 1000); // Delay the text reveal
-    return () => clearTimeout(timer);
-  }, []);
+    const timer = setTimeout(() => {
+      setShowWelcome(false)
+    }, 6000) // 6 seconds
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <>
-      <style jsx global>{`
-        @keyframes revealChar {
-          from {
-            transform: translateY(100%);
-          }
-          to {
-            transform: translateY(0);
-          }
-        }
-        .animate-reveal {
-          animation: revealChar 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-          transform: translateY(100%);
-        }
-      `}</style>
-      <div className="flex items-center justify-center min-h-screen bg-white">
-        <h1
-          className={`text-6xl font-bold transition-opacity duration-3000 ${
-            visible ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <span className="inline-block overflow-hidden">
-            {'Witaj!'.split('').map((char, index) => (
-              <span
-                key={index}
-                className="inline-block animate-reveal"
-                style={{ animationDelay: `${index * 0.4 + 1}s` }}
-              >
-                {char}
-              </span>
-            ))}
-          </span>
-        </h1>
-      </div>
+      {showWelcome ? (
+        <WelcomeScreen />
+      ) : (
+        <>
+          <div id="home"></div>
+          <ScrollingBackground imageUrl="/images/tlo.jpg">
+            <div className="relative z-10">
+              <CenteredSections />
+              <div className="min-h-screen pb-[footer-height]">
+                <section id="contact">
+                  <ContactSection />
+                </section>
+              </div>
+            </div>
+          </ScrollingBackground>
+        </>
+      )}
+      <RODOPopup />
     </>
-  );
+  )
 }
