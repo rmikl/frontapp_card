@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu'
 import AnimatedImage from '@/components/animated-image'
 import { ChevronDown } from 'lucide-react'
@@ -50,8 +50,23 @@ const sections: Section[] = [
     imageUrls: ['/images/support.jpg'],
   },
 ]
+
+
 export default function CenteredSections() {
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
+  const [sectionHeights, setSectionHeights] = useState<{ [key: string]: number }>({})
+  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+
+  useEffect(() => {
+    sections.forEach(section => {
+      if (contentRefs.current[section.id]) {
+        setSectionHeights(prev => ({
+          ...prev,
+          [section.id]: contentRefs.current[section.id]?.scrollHeight || 0
+        }))
+      }
+    })
+  }, [])
 
   const toggleSection = (id: string) => {
     setExpandedSections(prev => ({ ...prev, [id]: !prev[id] }))
@@ -65,21 +80,25 @@ export default function CenteredSections() {
           <section 
             key={section.id} 
             id={section.id} 
-            className="max-w-6xl mx-auto my-16 p-8 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg"
+            className="max-w-6xl mx-auto my-16 p-8 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg transition-all duration-500 ease-in-out"
+            style={{
+              maxHeight: expandedSections[section.id] 
+                ? `${sectionHeights[section.id]}px` 
+                : '300px', // Adjust this value as needed for collapsed state
+              overflow: 'hidden'
+            }}
           >
-            <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between`}>
+            <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start justify-between`}>
               <div className="w-full md:w-1/2 mb-8 md:mb-0">
                 <AnimatedImage imageUrls={section.imageUrls} alt={section.title} />
               </div>
               <div className="w-full md:w-1/2 md:px-8">
-                <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
-                <p className="text-lg text-gray-700">{section.content}</p>
-                <div 
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    expandedSections[section.id] ? 'max-h-96' : 'max-h-0'
-                  }`}
-                >
-                  <p className="text-lg text-gray-700 mt-4">{section.expandedContent}</p>
+                <div ref={el => contentRefs.current[section.id] = el}>
+                  <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
+                  <p className="text-lg text-gray-700">{section.content}</p>
+                  <div className={`mt-4 ${expandedSections[section.id] ? 'block' : 'hidden'}`}>
+                    <p className="text-lg text-gray-700">{section.expandedContent}</p>
+                  </div>
                 </div>
                 <div 
                   className="flex items-center justify-end mt-4 text-gray-500 cursor-pointer"
