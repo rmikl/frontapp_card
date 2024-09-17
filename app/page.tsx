@@ -1,4 +1,4 @@
-'use client'; // Deklaracja wskazująca, że ten komponent działa po stronie klienta
+'use client'; // Użycie deklaracji klienta
 
 import { useState, useEffect } from 'react';
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu';
@@ -11,11 +11,13 @@ export default function Home() {
       <div 
         className="absolute inset-0 bg-cover bg-center filter blur-md" 
         style={{ 
-          backgroundImage: 'url("/images/tlo.jpg")', 
+          backgroundImage: 'url(/images/tlo.jpeg)', // Upewnij się, że rozszerzenie to .jpeg
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }} 
-      ></div>
+      >
+
+      </div>
 
       <div className="relative z-10">
         <HorizontalLightGrayMenu />
