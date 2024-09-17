@@ -15,7 +15,7 @@ const sections: Section[] = [
     id: 'about',
     title: 'Profil Zawodowy',
     content: 'Jestem doświadczonym specjalistą w zakresie interwencji kryzysowej i terapii psychologicznej. Posiadam szeroką wiedzę i umiejętności w zakresie pracy z osobami dotkniętymi przemocą, problemami emocjonalnymi oraz kryzysami psychologicznymi.',
-    imageUrls: ['/images/self.jpeg', '/images/self2.jpeg', '/images/self3.jpeg'],
+    imageUrls: ['/images/self1.jpg', '/images/self2.jpg', '/images/self3.jpg'],
   },
   {
     id: 'experience',
