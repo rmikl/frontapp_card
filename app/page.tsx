@@ -3,18 +3,11 @@
 import { useState, useEffect } from 'react';
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu';
 import Image from 'next/image';
+import ScrollingBackground from '@/components/scrolling-background';
+
 export default function Home() {
   return (
-    <div className="relative min-h-screen">
-      {/* Rozmyte tło */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center filter blur-md h-full w-full" 
-        style={{ 
-          backgroundImage: 'url("/images/tlo.jpg")',
-        }} 
-      >
-      </div>
-
+    <ScrollingBackground imageUrl="/images/tlo.jpg">
       <div className="relative z-10">
         <HorizontalLightGrayMenu />
         <div className="p-8">
@@ -28,7 +21,7 @@ export default function Home() {
               width={600}
               height={400}
               className="mt-4"
-            />
+              />
           </section>
 
           {/* Sekcja - O nas */}
@@ -41,7 +34,7 @@ export default function Home() {
               width={600}
               height={400}
               className="mt-4"
-            />
+              />
           </section>
 
           {/* Sekcja - Usługi */}
@@ -54,7 +47,7 @@ export default function Home() {
               width={600}
               height={400}
               className="mt-4"
-            />
+              />
           </section>
 
           {/* Sekcja - Portfolio */}
@@ -67,7 +60,7 @@ export default function Home() {
               width={600}
               height={400}
               className="mt-4"
-            />
+              />
           </section>
 
           {/* Sekcja - Kontakt */}
@@ -80,10 +73,10 @@ export default function Home() {
               width={600}
               height={400}
               className="mt-4"
-            />
+              />
           </section>
         </div>
       </div>
-    </div>
+    </ScrollingBackground>
   );
 }
