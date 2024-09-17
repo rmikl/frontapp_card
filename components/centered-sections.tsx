@@ -76,21 +76,21 @@ export default function CenteredSections() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-transparent">
       <HorizontalLightGrayMenu />
       <div className="py-12 px-4 sm:px-6 lg:px-8">
         {sections.map((section, index) => (
           <section 
             key={section.id} 
             id={section.id} 
-            className="max-w-6xl mx-auto my-16 p-8 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg"
+            className="max-w-6xl mx-auto my-16 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:bg-opacity-90"
           >
             <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start justify-between p-8`}>
               <div className="w-full md:w-1/2 mb-8 md:mb-0">
                 <AnimatedImage imageUrls={section.imageUrls} alt={section.title} />
               </div>
               <div className="w-full md:w-1/2 md:px-8">
-                <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
+                <h2 className="text-3xl font-bold mb-4 text-gray-800">{section.title}</h2>
                 <p className="text-lg text-gray-700 mb-4">{section.content}</p>
                 <div 
                   ref={el => expandedContentRefs.current[section.id] = el}
@@ -101,7 +101,7 @@ export default function CenteredSections() {
                 </div>
                 <Button 
                   variant="ghost"
-                  className="flex items-center justify-center mt-4 text-blue-600 cursor-pointer w-full"
+                  className="flex items-center justify-center mt-4 text-blue-600 cursor-pointer w-full hover:bg-blue-50 transition-colors duration-300"
                   onClick={() => toggleSection(section.id)}
                   aria-expanded={expandedSections[section.id]}
                   aria-controls={`expanded-content-${section.id}`}
