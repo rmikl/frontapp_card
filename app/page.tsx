@@ -10,15 +10,16 @@ import CenteredSections from '@/components/centered-sections';
 
 export default function Home() {
   return (
-    <ScrollingBackground imageUrl="/images/tlo.jpg">
-      <div className="relative z-10">
-        <CenteredSections />
-        <div className="min-h-screen pb-[footer-height]">
-          <section id="contact">
-            <ContactSection />
-          </section>
+    <><div id="home">
+    </div><ScrollingBackground imageUrl="/images/tlo.jpg">
+        <div className="relative z-10">
+          <CenteredSections />
+          <div className="min-h-screen pb-[footer-height]">
+            <section id="contact">
+              <ContactSection />
+            </section>
+          </div>
         </div>
-      </div>
-    </ScrollingBackground>
+      </ScrollingBackground></>
 );
 }
