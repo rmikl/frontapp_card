@@ -32,7 +32,7 @@ export default function MenuZmianaKoloruPrzyPrzewijaniu() {
       <nav className="flex items-center justify-between">
         <div className="flex space-x-2">
         <a href="#home">    
-            <Button variant="ghost" size="icon" className="hover:bg-gray-300 transition-colors" aria-label="Home">
+            <Button variant="ghost" size="icon" className={buttonClass} aria-label="Home">
               <HomeIcon className="h-5 w-5" />
             </Button>
           </a>
