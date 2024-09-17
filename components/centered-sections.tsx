@@ -83,7 +83,7 @@ export default function CenteredSections() {
           <section 
             key={section.id} 
             id={section.id} 
-            className="max-w-6xl mx-auto my-16 bg-white rounded-lg shadow-lg overflow-hidden"
+            className="max-w-6xl mx-auto my-16 p-8 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg"
           >
             <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start justify-between p-8`}>
               <div className="w-full md:w-1/2 mb-8 md:mb-0">
