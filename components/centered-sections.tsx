@@ -13,6 +13,7 @@ interface Section {
   expandedContent: string
   imageUrls: string[]
 }
+
 const sections: Section[] = [
   {
     id: 'about',
@@ -50,18 +51,17 @@ const sections: Section[] = [
     imageUrls: ['/images/support.jpg'],
   },
 ]
-
 export default function CenteredSections() {
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
-  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const expandedContentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
 
   useEffect(() => {
     const updateHeights = () => {
       sections.forEach(section => {
-        if (contentRefs.current[section.id]) {
-          contentRefs.current[section.id]!.style.maxHeight = expandedSections[section.id]
-            ? `${contentRefs.current[section.id]!.scrollHeight}px`
-            : `${contentRefs.current[section.id]!.querySelector('p')!.scrollHeight}px`
+        if (expandedContentRefs.current[section.id]) {
+          expandedContentRefs.current[section.id]!.style.maxHeight = expandedSections[section.id]
+            ? `${expandedContentRefs.current[section.id]!.scrollHeight}px`
+            : '0px'
         }
       })
     }
@@ -90,19 +90,18 @@ export default function CenteredSections() {
                 <AnimatedImage imageUrls={section.imageUrls} alt={section.title} />
               </div>
               <div className="w-full md:w-1/2 md:px-8">
+                <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
+                <p className="text-lg text-gray-700 mb-4">{section.content}</p>
                 <div 
-                  ref={el => contentRefs.current[section.id] = el}
-                  className="transition-all duration-500 ease-in-out overflow-hidden"
+                  ref={el => expandedContentRefs.current[section.id] = el}
+                  className="overflow-hidden transition-all duration-500 ease-in-out"
+                  style={{ maxHeight: '0px' }}
                 >
-                  <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
-                  <p className="text-lg text-gray-700">{section.content}</p>
-                  <div className={`mt-4 ${expandedSections[section.id] ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
-                    <p className="text-lg text-gray-700">{section.expandedContent}</p>
-                  </div>
+                  <p className="text-lg text-gray-700 mt-4">{section.expandedContent}</p>
                 </div>
                 <Button 
                   variant="ghost"
-                  className="flex items-center justify-end mt-4 text-blue-600 cursor-pointer"
+                  className="flex items-center justify-center mt-4 text-blue-600 cursor-pointer w-full"
                   onClick={() => toggleSection(section.id)}
                   aria-expanded={expandedSections[section.id]}
                   aria-controls={`expanded-content-${section.id}`}
