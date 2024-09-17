@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu';
 import Image from 'next/image';
 import ScrollingBackground from '@/components/scrolling-background';
+import ContactSection from '@/components/contact-section';
 
 export default function Home() {
   return (
@@ -77,6 +78,10 @@ export default function Home() {
           </section>
         </div>
       </div>
+      <div className="min-h-screen pb-[footer-height]">
+      {/* Your main content */}
+      <ContactSection />
+    </div>
     </ScrollingBackground>
   );
 }
