@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu'
 import AnimatedImage from '@/components/animated-image'
 import { ChevronDown } from 'lucide-react'
@@ -53,19 +53,6 @@ const sections: Section[] = [
 
 export default function CenteredSections() {
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
-  const [expandedHeights, setExpandedHeights] = useState<{ [key: string]: number }>({})
-  const expandedContentRefs = useRef<{ [key: string]: HTMLParagraphElement | null }>({})
-
-  useEffect(() => {
-    sections.forEach(section => {
-      if (expandedContentRefs.current[section.id]) {
-        setExpandedHeights(prev => ({
-          ...prev,
-          [section.id]: expandedContentRefs.current[section.id]?.scrollHeight || 0
-        }))
-      }
-    })
-  }, [])
 
   const toggleSection = (id: string) => {
     setExpandedSections(prev => ({ ...prev, [id]: !prev[id] }))
@@ -88,17 +75,9 @@ export default function CenteredSections() {
               <div className="w-full md:w-1/2 md:px-8">
                 <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
                 <p className="text-lg text-gray-700">{section.content}</p>
-                <div 
-                  className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
-                  style={{ maxHeight: expandedSections[section.id] ? expandedHeights[section.id] : 0 }}
-                >
-                  <p 
-                    ref={el => expandedContentRefs.current[section.id] = el}
-                    className="text-lg text-gray-700 mt-4"
-                  >
-                    {section.expandedContent}
-                  </p>
-                </div>
+                {expandedSections[section.id] && (
+                  <p className="text-lg text-gray-700 mt-4">{section.expandedContent}</p>
+                )}
                 <div 
                   className="flex items-center justify-end mt-4 text-gray-500 cursor-pointer"
                   onClick={() => toggleSection(section.id)}
