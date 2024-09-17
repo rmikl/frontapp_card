@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-export default function AnimatedImage() {
+interface AnimatedImageProps {
+  imageUrl: string
+  alt: string
+}
+
+export default function AnimatedImage({ imageUrl, alt }: AnimatedImageProps) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -10,7 +15,7 @@ export default function AnimatedImage() {
   }, [])
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center">
       <div 
         className={`
           transform transition-all duration-1000 ease-out
@@ -18,10 +23,10 @@ export default function AnimatedImage() {
         `}
       >
         <Image
-          src="/images/self.jpg"
-          width={300}
-          height={200}
-          alt="Animowany obrazek"
+          src={imageUrl}
+          width={500}
+          height={300}
+          alt={alt}
           className="rounded-lg shadow-lg"
         />
       </div>

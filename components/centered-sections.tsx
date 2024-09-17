@@ -1,6 +1,5 @@
-import Image from 'next/image'
 import HorizontalLightGrayMenu from '@/components/HorizontalLightGrayMenu'
-import AnimatedImage from './animated-image'
+import AnimatedImage from '@/components/animated-image'
 
 interface Section {
   id: string
@@ -44,28 +43,27 @@ const sections: Section[] = [
 
 export default function CenteredSections() {
   return (
-      <div className="min-h-screen">
-        <HorizontalLightGrayMenu />
-        <div className="py-12">
-          {sections.map((section, index) => (
-            <section 
-              key={section.id} 
-              id={section.id} 
-              className="max-w-6xl mx-auto my-16 p-8 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg"
-            >
-              <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="w-full md:w-1/2 mb-8 md:mb-0">
-                <AnimatedImage />
-
-                </div>
-                <div className="w-full md:w-1/2 md:pl-8">
-                  <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
-                  <p className="text-lg text-gray-700">{section.content}</p>
-                </div>
+    <div className="min-h-screen">
+      <HorizontalLightGrayMenu />
+      <div className="py-12">
+        {sections.map((section, index) => (
+          <section 
+            key={section.id} 
+            id={section.id} 
+            className="max-w-6xl mx-auto my-16 p-8 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg"
+          >
+            <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between`}>
+              <div className="w-full md:w-1/2 mb-8 md:mb-0">
+                <AnimatedImage imageUrl={section.imageUrl} alt={section.title} />
               </div>
-            </section>
-          ))}
-        </div>
+              <div className="w-full md:w-1/2 md:px-8">
+                <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
+                <p className="text-lg text-gray-700">{section.content}</p>
+              </div>
+            </div>
+          </section>
+        ))}
       </div>
+    </div>
   )
 }
