@@ -28,7 +28,7 @@ export default function Component() {
             </div>
             <div className="flex items-center gap-2">
               <PhoneIncoming className="w-6 h-6" />
-              <span>Telfon: +48 691 688 911</span>
+              <span>Telefon: +48 691 688 911</span>
             </div>
             <div className="flex items-center gap-2">
               <MessageCircle className="w-6 h-6" />
