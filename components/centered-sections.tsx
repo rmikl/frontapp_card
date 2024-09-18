@@ -51,7 +51,6 @@ const sections: Section[] = [
     imageUrls: ['/images/support.jpg'],
   },
 ]
-
 export default function CenteredSections() {
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
   const expandedContentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
@@ -92,13 +91,13 @@ export default function CenteredSections() {
               </div>
               <div className="w-full md:w-1/2 md:px-8">
                 <h2 className="text-3xl font-bold mb-4 text-gray-800">{section.title}</h2>
-                <p className="text-lg text-gray-700 mb-4">{section.content}</p>
+                <p className="text-lg text-gray-700 mb-4 text-justify">{section.content}</p>
                 <div 
                   ref={el => expandedContentRefs.current[section.id] = el}
                   className="overflow-hidden transition-all duration-500 ease-in-out"
                   style={{ maxHeight: '0px' }}
                 >
-                  <p className="text-lg text-gray-700 mt-4 whitespace-pre-line">{section.expandedContent}</p>
+                  <p className="text-lg text-gray-700 mt-4 whitespace-pre-line text-justify">{section.expandedContent}</p>
                 </div>
                 <Button 
                   variant="ghost"
