@@ -6,7 +6,7 @@ export default function Component() {
       <main className="flex-grow">
         {/* Inne elementy strony */}
       </main>
-      <footer className="bg-lime-200 text-primary-foreground p-8 shadow-lg">
+      <footer className="bg-lime-200 text-black p-8 shadow-lg">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div className="w-full h-[400px]">
             <iframe
