@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/Button"
-import { Mail, HomeIcon, Menu, X, User, Briefcase, GraduationCap, BookOpen, HelpCircle } from "lucide-react"
+import { Mail, HomeIcon, Menu, X } from "lucide-react"
 import { useState, useEffect } from 'react'
 
 export default function HorizontalLightGrayMenu() {
@@ -22,11 +22,11 @@ export default function HorizontalLightGrayMenu() {
     : "hover:bg-gray-300 transition-colors"
 
   const menuItems = [
-    { href: "#about", text: "Profil zawodowy", icon: User },
-    { href: "#experience", text: "Doświadczenie", icon: Briefcase },
-    { href: "#education", text: "Wykształcenie", icon: GraduationCap },
-    { href: "#training", text: "Kursy i szkolenia", icon: BookOpen },
-    { href: "#support", text: "Zakres wsparcia", icon: HelpCircle },
+    { href: "#about", text: "Profil zawodowy" },
+    { href: "#experience", text: "Doświadczenie" },
+    { href: "#education", text: "Wykształcenie" },
+    { href: "#training", text: "Kursy i szkolenia" },
+    { href: "#support", text: "Zakres wsparcia" },
   ]
 
   return (
@@ -43,7 +43,6 @@ export default function HorizontalLightGrayMenu() {
               {menuItems.map((item, index) => (
                 <a key={index} href={item.href}>
                   <Button variant="ghost" className={`${buttonClass} text-current icon-fix`}>
-                    <item.icon className="h-4 w-4 mr-2" />
                     {item.text}
                   </Button>
                 </a>
@@ -72,7 +71,6 @@ export default function HorizontalLightGrayMenu() {
             {menuItems.map((item, index) => (
               <a key={index} href={item.href} className="block">
                 <Button variant="ghost" className={`w-full text-left ${buttonClass} text-current icon-fix`} onClick={() => setIsMenuOpen(false)}>
-                  <item.icon className="h-4 w-4 mr-2 inline" />
                   {item.text}
                 </Button>
               </a>
