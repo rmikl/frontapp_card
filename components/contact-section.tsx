@@ -1,4 +1,4 @@
-import { Mail, MapPin, MessageCircle, PhoneIncoming } from 'lucide-react'
+import { Mail, MapPin, MessageCircle, PhoneIncoming, Github, Linkedin } from 'lucide-react'
 
 export default function Component() {
   return (
@@ -44,6 +44,15 @@ export default function Component() {
             <div className="flex gap-4 mt-4">
             </div>
           </div>
+        </div>
+        <div className="absolute bottom-2 right-2 flex items-center text-sm">
+          <span className="mr-2">Powered by</span>
+          <a href="https://github.com/rmikl" target="_blank" rel="noopener noreferrer" className="mr-2">
+            <Github className="w-5 h-5" />
+          </a>
+          <a href="https://www.linkedin.com/in/robertmiklas/" target="_blank" rel="noopener noreferrer">
+            <Linkedin className="w-5 h-5" />
+          </a>
         </div>
       </footer>
     </div>
