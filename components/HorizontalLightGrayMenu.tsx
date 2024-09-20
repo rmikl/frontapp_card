@@ -18,8 +18,8 @@ export default function HorizontalLightGrayMenu() {
   }, [])
 
   const buttonClass = isScrolled
-    ? "hover:bg-lime-300 hover:text-white transition-colors"
-    : "hover:bg-gray-300 transition-colors"
+  ? "hover:bg-lime-300 hover:text-white transition-colors text-black"
+  : "hover:bg-gray-300 transition-colors text-black"
 
   const menuItems = [
     { href: "#about", text: "Profil zawodowy" },
